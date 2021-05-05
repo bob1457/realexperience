@@ -3,5 +3,380 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "realportal": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/realportal",
+      "sourceRoot": "projects/realportal/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/realportal",
+            "index": "projects/realportal/src/index.html",
+            "main": "projects/realportal/src/main.ts",
+            "polyfills": "projects/realportal/src/polyfills.ts",
+            "tsConfig": "projects/realportal/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/realportal/src/favicon.ico",
+              "projects/realportal/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/realportal/src/styles.scss",
+              {
+                "input": "node_modules/@ionic/angular/css/core.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/normalize.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/structure.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/typography.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/display.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/padding.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/float-elements.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+              },
+              {
+                "input": "projects/realportal/src/theme/variables.css"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/realportal/src/environments/environment.ts",
+                  "with": "projects/realportal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "realportal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "realportal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "realportal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/realportal/src/test.ts",
+            "polyfills": "projects/realportal/src/polyfills.ts",
+            "tsConfig": "projects/realportal/tsconfig.spec.json",
+            "karmaConfig": "projects/realportal/karma.conf.js",
+            "assets": [
+              "projects/realportal/src/favicon.ico",
+              "projects/realportal/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/realportal/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/realportal/tsconfig.app.json",
+              "projects/realportal/tsconfig.spec.json",
+              "projects/realportal/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/realportal/e2e/protractor.conf.js",
+            "devServerTarget": "realportal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "realportal:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "realportal:ionic-cordova-build",
+            "devServerTarget": "realportal:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "realportal:ionic-cordova-build:production",
+              "devServerTarget": "realportal:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "realportal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "realportal:build:production"
+            }
+          }
+        }
+      }
+    },
+    "realmanager": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/realmanager",
+      "sourceRoot": "projects/realmanager/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/realmanager",
+            "index": "projects/realmanager/src/index.html",
+            "main": "projects/realmanager/src/main.ts",
+            "polyfills": "projects/realmanager/src/polyfills.ts",
+            "tsConfig": "projects/realmanager/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/realmanager/src/favicon.ico",
+              "projects/realmanager/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/realmanager/src/styles.scss",
+              {
+                "input": "node_modules/@ionic/angular/css/core.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/normalize.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/structure.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/typography.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/display.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/padding.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/float-elements.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+              },
+              {
+                "input": "projects/realmanager/src/theme/variables.css"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/realmanager/src/environments/environment.ts",
+                  "with": "projects/realmanager/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "realmanager:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "realmanager:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "realmanager:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/realmanager/src/test.ts",
+            "polyfills": "projects/realmanager/src/polyfills.ts",
+            "tsConfig": "projects/realmanager/tsconfig.spec.json",
+            "karmaConfig": "projects/realmanager/karma.conf.js",
+            "assets": [
+              "projects/realmanager/src/favicon.ico",
+              "projects/realmanager/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/realmanager/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/realmanager/tsconfig.app.json",
+              "projects/realmanager/tsconfig.spec.json",
+              "projects/realmanager/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/realmanager/e2e/protractor.conf.js",
+            "devServerTarget": "realmanager:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "realmanager:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "realmanager:ionic-cordova-build",
+            "devServerTarget": "realmanager:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "realmanager:ionic-cordova-build:production",
+              "devServerTarget": "realmanager:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "realmanager:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "realmanager:build:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "realportal"
 }

@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "realportal": {
+      "name": "portal",
+      "integrations": {},
+      "type": "angular",
+      "root": "projects"
+    },
+    "realmanager": {
+      "name": "portal",
+      "integrations": {},
+      "type": "angular",
+      "root": "projects"
+    }
+  },
+  "defaultProject": "realportal"
+}
