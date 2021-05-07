@@ -65,7 +65,7 @@
                 "input": "node_modules/@ionic/angular/css/flex-utils.css"
               },
               {
-                "input": "projects/realportal/src/theme/variables.css"
+                "input": "projects/realportal/src/theme/variables.scss"
               }
             ],
             "scripts": []
@@ -252,7 +252,7 @@
                 "input": "node_modules/@ionic/angular/css/flex-utils.css"
               },
               {
-                "input": "projects/realmanager/src/theme/variables.css"
+                "input": "projects/realmanager/src/theme/variables.scss"
               }
             ],
             "scripts": []
