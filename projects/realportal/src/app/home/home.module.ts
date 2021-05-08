@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePageComponent } from './home.page/home-page.component';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -11,6 +13,8 @@ import { HomePageComponent } from './home.page/home-page.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    IonicModule,
     HomeRoutingModule
   ]
 })
